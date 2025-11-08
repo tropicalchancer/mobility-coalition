@@ -32,21 +32,81 @@ export default function HomePage() {
       </header>
 
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-20 text-center">
-        <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance">
+      <section className="container mx-auto px-4 py-16 md:py-20 text-center">
+        <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-balance">
           Unlock
           <br />
           <span className="text-[#0080FF]">Global Talent</span>
           <br />
           through Mobility Policy
         </h1>
-        <p className="text-gray-600 text-lg max-w-2xl mx-auto mb-8 text-pretty">
+        <p className="text-gray-600 text-lg max-w-2xl mx-auto mb-6 md:mb-8 text-pretty">
           Join a coalition rallying support for progressive mobility policies that help jurisdictions attract remote talent and unlock economic opportunities for everyone.
         </p>
-        <Button className="bg-[#003366] hover:bg-[#004080] text-white">
+        <Button className="bg-[#003366] hover:bg-[#004080] text-white rounded-full px-6 h-11">
           Join the Coalition
           <ArrowRight className="ml-2 h-4 w-4" />
         </Button>
+        {/* Stats Grid - immediately under CTA, visually distinct and compact */}
+        {(() => {
+          const stats = [
+            {
+              icon: DollarSign,
+              value: "$2.5T",
+              label: "Total income represented",
+              helper: "Combined economic value of supporters and remote workers",
+            },
+            {
+              icon: Users,
+              value: "150K+",
+              label: "Remote workers pledged",
+              helper: "Global talent ready to contribute",
+            },
+            {
+              icon: Building2,
+              value: "50+",
+              label: "Supporting organizations",
+              helper: "Foundations and ecosystems backing reform",
+            },
+            {
+              icon: Map,
+              value: "25+",
+              label: "Progressive jurisdictions",
+              helper: "Governments embracing mobility policy",
+            },
+          ]
+          return (
+            <div
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-8 md:mt-10"
+              role="list"
+              aria-label="Coalition impact statistics"
+            >
+              {stats.map((s, idx) => {
+                const Icon = s.icon
+                return (
+                  <Card
+                    key={idx}
+                    role="listitem"
+                    className="p-6 sm:p-8 bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow"
+                  >
+                    <div className="flex items-center justify-center">
+                      <div className="h-10 w-10 rounded-full bg-blue-50 flex items-center justify-center">
+                        <Icon className="h-5 w-5 text-[#0080FF]" />
+                      </div>
+                    </div>
+                    <div className="mt-4 text-center">
+                      <div className="text-3xl md:text-4xl font-extrabold tracking-tight text-[#003366]">
+                        {s.value}
+                      </div>
+                      <div className="mt-1 font-medium text-gray-900">{s.label}</div>
+                      <p className="mt-1 text-sm text-gray-600">{s.helper}</p>
+                    </div>
+                  </Card>
+                )
+              })}
+            </div>
+          )
+        })()}
       </section>
 
       {/* Why Mobility Matters Section */}
@@ -57,40 +117,7 @@ export default function HomePage() {
             Progressive mobility policies are key to unlocking global talent, helping jurisdictions attract remote workers, and creating economic opportunities that benefit everyone while supporting people who pose no risk.
           </p>
 
-          {/* Stats Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card className="p-6 bg-white border border-gray-200">
-              <DollarSign className="h-8 w-8 text-[#0080FF] mb-4" />
-              <div className="text-3xl font-bold text-[#0080FF] mb-2">$2.5T</div>
-              <div className="font-semibold mb-2">Total income represented</div>
-              <p className="text-sm text-gray-600">
-                Combined economic value of coalition supporters and remote workers
-              </p>
-            </Card>
-
-            <Card className="p-6 bg-white border border-gray-200">
-              <Users className="h-8 w-8 text-[#0080FF] mb-4" />
-              <div className="text-3xl font-bold text-[#0080FF] mb-2">150K+</div>
-              <div className="font-semibold mb-2">Remote workers pledged</div>
-              <p className="text-sm text-gray-600">Global talent ready to contribute to forward-thinking jurisdictions</p>
-            </Card>
-
-            <Card className="p-6 bg-white border border-gray-200">
-              <Building2 className="h-8 w-8 text-[#0080FF] mb-4" />
-              <div className="text-3xl font-bold text-[#0080FF] mb-2">50+</div>
-              <div className="font-semibold mb-2">Supporting organizations</div>
-              <p className="text-sm text-gray-600">Foundations, ecosystems, and organizations backing mobility reform</p>
-            </Card>
-
-            <Card className="p-6 bg-white border border-gray-200">
-              <Map className="h-8 w-8 text-[#0080FF] mb-4" />
-              <div className="text-3xl font-bold text-[#0080FF] mb-2">25+</div>
-              <div className="font-semibold mb-2">Progressive jurisdictions</div>
-              <p className="text-sm text-gray-600">
-                Forward-thinking governments embracing talent mobility and economic opportunity
-              </p>
-            </Card>
-          </div>
+          {/* Space previously used by stats grid now reserved for narrative content */}
         </div>
       </section>
 
@@ -192,7 +219,7 @@ export default function HomePage() {
           <div className="space-y-6 max-w-4xl">
             <Card className="p-6 bg-white border border-gray-200">
               <div className="flex gap-4">
-                <div className="flex-shrink-0">
+                <div className="shrink-0">
                   <div className="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center">
                     <Users className="h-6 w-6 text-[#0080FF]" />
                   </div>
@@ -208,7 +235,7 @@ export default function HomePage() {
 
             <Card className="p-6 bg-white border border-gray-200">
               <div className="flex gap-4">
-                <div className="flex-shrink-0">
+                <div className="shrink-0">
                   <div className="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center">
                     <Network className="h-6 w-6 text-[#0080FF]" />
                   </div>
@@ -224,7 +251,7 @@ export default function HomePage() {
 
             <Card className="p-6 bg-white border border-gray-200">
               <div className="flex gap-4">
-                <div className="flex-shrink-0">
+                <div className="shrink-0">
                   <div className="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center">
                     <Building2 className="h-6 w-6 text-[#0080FF]" />
                   </div>
