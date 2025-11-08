@@ -8,9 +8,9 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Freedom Cities Coalition - Building Prosperous Communities",
+  title: "Cloud Communities Coalition - Unlocking Global Talent",
   description:
-    "Join the coalition to unleash American dynamism and build the future of American cities through Freedom Cities.",
+    "Join our coalition supporting progressive mobility policies that help jurisdictions attract remote talent and unlock economic opportunities.",
   generator: "v0.app",
 }
 
